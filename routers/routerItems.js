@@ -1,0 +1,20 @@
+let express = require("express")
+let routerItems = express.Router();
+let items = require("../data/items")
+
+routerItems.get("/", (req,res) => {
+    res.json(items)
+
+})
+
+routerItems.get("/:id", (req,res) => {
+    let currentItems = items.find( i => i.id == req.params.id)
+    if ( currenItem == undefined){
+        res.status(400).json({ error: "not item with this id"})
+        return
+    }
+    res.json(currenItem)
+})
+
+
+module.exports = routerItems
