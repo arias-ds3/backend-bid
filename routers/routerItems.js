@@ -8,7 +8,7 @@ routerItems.get("/", (req,res) => {
 })
 
 routerItems.get("/:id", (req,res) => {
-    let currentItems = items.find( i => i.id == req.params.id)
+    let currentItem = items.find( i => i.id == req.params.id)
     if ( currenItem == undefined){
         res.status(400).json({ error: "not item with this id"})
         return
